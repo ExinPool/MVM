@@ -54,10 +54,10 @@ Add crontab like this in the server.
 
 ``` bash
 # MVMScan process monitor
-*/5 * * * * cd /data/monitor/exinpool/MVM/process && bash mvmscan_process.sh >> mvmscan_process.log &
+*/5 * * * * cd /data/monitor/exinpool/MVM/mvmscan && bash mvmscan_process.sh >> mvmscan_process.log &
 
 # MVMScan process monitor
-*/5 * * * * cd /data/monitor/exinpool/MVM/process && bash mvmscan_process_lark.sh >> mvmscan_process.log &
+*/5 * * * * cd /data/monitor/exinpool/MVM/mvmscan && bash mvmscan_process_lark.sh >> mvmscan_process.log &
 ```
 
 The crontab will run every minute then you can check the log in the `mvmscan_process.log`.
