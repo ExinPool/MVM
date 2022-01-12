@@ -28,8 +28,7 @@ then
     log="`date '+%Y-%m-%d %H:%M:%S'` UTC `hostname` `whoami` INFO ${service} process is normal."
     echo $log >> $log_file
 else
-    log="时间: `date '+%Y-%m-%d %H:%M:%S'` UTC \n主机名: `hostname` \n节点: $host \n状态: 进程不存在，已重启节点。"
+    log="时间: `date '+%Y-%m-%d %H:%M:%S'` UTC \n主机名: `hostname` \n节点: $host \n状态: 进程不存在，请尽快检查。"
     echo -e $log >> $log_file
     curl -X POST -H "Content-Type: application/json" -d '{"msg_type":"text","content":{"text":"'"$log"'"}}' ${lark_webhook_url}
-    cd /data/blockscout/blockscout && nohup bash start.sh &
 fi
