@@ -1,0 +1,9 @@
+SERVICE=MVM
+PROCESS=8545
+PROCESS_NUM=1
+LOCAL_HOST=http://127.0.0.1:8545
+LOG_FILE=mvm_blocks.log
+SLEEP_NUMBER=30
+WEBHOOK_URL=https://webhook.exinwork.com/api/send?access_token
+ACCESS_TOKEN=YOUR_ACCESS_TOKEN
+LARK_WEBHOOK_URL=https://open.larksuite.com/open-apis/bot/v2/hook/
