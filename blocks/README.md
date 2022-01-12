@@ -56,11 +56,11 @@ Add crontab like this in the server.
 
 ``` bash
 # MVM node blocks monitor
-*/5 * * * * cd /data/monitor/exinpool/MVM/blocks && bash MVM_blocks.sh >> MVM_blocks.log &
+*/5 * * * * cd /data/monitor/exinpool/MVM/blocks && bash mvm_blocks.sh >> mvm_blocks.log &
 
 # You can also send message to Lark.
 # MVM node blocks monitor
-*/5 * * * * cd /data/monitor/exinpool/MVM/blocks && bash MVM_blocks_lark.sh >> MVM_blocks.log &
+*/5 * * * * cd /data/monitor/exinpool/MVM/blocks && bash mvm_blocks_lark.sh >> mvm_blocks.log &
 ```
 
 The crontab will run every minute then you can check the log in the `mvm_blocks.log`.
