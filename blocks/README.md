@@ -27,7 +27,7 @@
 $ sudo mkdir -p /data/monitor/exinpool
 $ cd /data/monitor/exinpool
 $ sudo git clone https://github.com/ExinPool/MVM
-$ sudo apt -y install jq
+$ sudo apt -y install jq net-tools
 ```
 
 ### Setup
