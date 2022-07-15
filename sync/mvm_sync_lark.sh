@@ -31,7 +31,7 @@ remote_second_blocks=`echo $((16#${remote_second_blocks_hex}))`
 log="`date '+%Y-%m-%d %H:%M:%S'` UTC `hostname` `whoami` INFO local_blocks: ${local_blocks}, remote_first_blocks: ${remote_first_blocks}, remote_second_blocks: ${remote_second_blocks}"
 echo $log >> $log_file
 
-if [ ${local_blocks} == ?(-)+([[:digit:]]) ] && [ ${local_blocks} -gt 0 ] && [ ${remote_first_blocks} == ?(-)+([[:digit:]]) ] && [ ${remote_first_blocks} -gt 0 ] && [ ${remote_second_blocks} == ?(-)+([[:digit:]]) ] && [ ${remote_second_blocks} -gt 0 ]
+if [[ ${local_blocks} == ?(-)+([[:digit:]]) ]] && [ ${local_blocks} -gt 0 ] && [[ ${remote_first_blocks} == ?(-)+([[:digit:]]) ]] && [ ${remote_first_blocks} -gt 0 ] && [[ ${remote_second_blocks} == ?(-)+([[:digit:]]) ]] && [ ${remote_second_blocks} -gt 0 ]
 then
     local_first=$((local_blocks - remote_first_blocks))
     local_second=$((local_blocks - remote_second_blocks))
