@@ -22,11 +22,11 @@ node_id="$(config_get NODE_ID)"
 log_file="$(config_get LOG_FILE)"
 lark_webhook_url="$(config_get LARK_WEBHOOK_URL)"
 
-local_blocks_hex=`curl --connection-timeout 5 --max-time 10 -X POST ${local_host} -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"eth_blockNumber", "params":[], "id":83}' | jq | grep result | sed "s/\"//g" | awk -F':' '{print $2}' | sed "s/ //g" | sed "s/0x//g"`
+local_blocks_hex=`curl --max-time 10 -X POST ${local_host} -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"eth_blockNumber", "params":[], "id":83}' | jq | grep result | sed "s/\"//g" | awk -F':' '{print $2}' | sed "s/ //g" | sed "s/0x//g"`
 local_blocks=`echo $((16#${local_blocks_hex}))`
-remote_first_blocks_hex=`curl --connection-timeout 5 --max-time 10 -X POST ${remote_host_first} -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"eth_blockNumber", "params":[], "id":83}' | jq | grep result | sed "s/\"//g" | awk -F':' '{print $2}' | sed "s/ //g" | sed "s/0x//g"`
+remote_first_blocks_hex=`curl --max-time 10 -X POST ${remote_host_first} -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"eth_blockNumber", "params":[], "id":83}' | jq | grep result | sed "s/\"//g" | awk -F':' '{print $2}' | sed "s/ //g" | sed "s/0x//g"`
 remote_first_blocks=`echo $((16#${remote_first_blocks_hex}))`
-remote_second_blocks_hex=`curl --connection-timeout 5 --max-time 10 -X POST ${remote_host_second} -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"eth_blockNumber", "params":[], "id":83}' | jq | grep result | sed "s/\"//g" | awk -F':' '{print $2}' | sed "s/ //g" | sed "s/0x//g"`
+remote_second_blocks_hex=`curl --max-time 10 -X POST ${remote_host_second} -H "Content-Type: application/json" --data '{"jsonrpc":"2.0", "method":"eth_blockNumber", "params":[], "id":83}' | jq | grep result | sed "s/\"//g" | awk -F':' '{print $2}' | sed "s/ //g" | sed "s/0x//g"`
 remote_second_blocks=`echo $((16#${remote_second_blocks_hex}))`
 log="`date '+%Y-%m-%d %H:%M:%S'` UTC `hostname` `whoami` INFO local_blocks: ${local_blocks}, remote_first_blocks: ${remote_first_blocks}, remote_second_blocks: ${remote_second_blocks}"
 echo $log >> $log_file
